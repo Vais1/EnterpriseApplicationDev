@@ -34,10 +34,22 @@ This repository contains small ASP.NET Core projects used in tutorial classes. E
 
 ## How to run (any project)
 
-From the project folder:
+First, navigate to the project folder:
+
+```powershell
+cd ex5-routing1
+```
+
+Then run the application:
 
 ```powershell
 dotnet run
+```
+
+Or use watch mode for auto-reload on file changes:
+
+```powershell
+dotnet watch run
 ```
 
 Open the printed URL in your browser.
