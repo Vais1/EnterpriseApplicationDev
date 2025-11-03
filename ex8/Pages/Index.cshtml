@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Tours - ex8";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to World Tours</h1>
+    <p>This exercise demonstrates ASP.NET Core attribute routing with the ToursController.</p>
+    <p>Route pattern: <code>/goto/{city}</code></p>
+    
+    <h2>Available City Tours</h2>
+    <p>Click on any city below to view its tour information:</p>
+    
+    <ul style="list-style: none; padding: 0;">
+        <li style="margin: 10px;"><a href="/goto/nyc">/goto/nyc</a> → New York City</li>
+        <li style="margin: 10px;"><a href="/goto/london">/goto/london</a> → London</li>
+        <li style="margin: 10px;"><a href="/goto/paris">/goto/paris</a> → Paris</li>
+        <li style="margin: 10px;"><a href="/goto/tokyo">/goto/tokyo</a> → Tokyo</li>
+        <li style="margin: 10px;"><a href="/goto/dubai">/goto/dubai</a> → Dubai</li>
+        <li style="margin: 10px;"><a href="/goto/sydney">/goto/sydney</a> → Sydney</li>
+        <li style="margin: 10px;"><a href="/goto/bangkok">/goto/bangkok</a> → Bangkok</li>
+        <li style="margin: 10px;"><a href="/goto/barcelona">/goto/barcelona</a> → Barcelona</li>
+        <li style="margin: 10px;"><a href="/goto/lasvegas">/goto/lasvegas</a> → Las Vegas</li>
+        <li style="margin: 10px;"><a href="/goto/rome">/goto/rome</a> → Rome</li>
+        <li style="margin: 10px;"><a href="/goto/amsterdam">/goto/amsterdam</a> → Amsterdam</li>
+        <li style="margin: 10px;"><a href="/goto/singapur">/goto/singapur</a> → Singapore</li>
+        <li style="margin: 10px;"><a href="/goto/istanbul">/goto/istanbul</a> → Istanbul</li>
+    </ul>
+    
+    <hr/>
+    <h3>Test Invalid URLs</h3>
+    <p>Try these invalid URLs to see error handling:</p>
+    <ul style="list-style: none; padding: 0;">
+        <li style="margin: 10px;"><a href="/goto/atlantis">/goto/atlantis</a> → Non-existent city</li>
+        <li style="margin: 10px;"><a href="/goto/invalidcity">/goto/invalidcity</a> → Invalid route</li>
+        <li style="margin: 10px;"><a href="/goto/">/goto/</a> → Show all available cities</li>
+    </ul>
+    
+    <hr/>
+    <h3>How it works</h3>
+    <p>The <code>ToursController</code> uses attribute routing with <code>[Route("goto")]</code></p>
+    <p>Valid routes:</p>
+    <ul style="list-style: none; padding: 0;">
+        <li><code>GET /goto</code> → Lists all available cities</li>
+        <li><code>GET /goto/{city}</code> → Shows details for a specific city</li>
+        <li>Invalid cities return a <strong>404 Not Found</strong> response</li>
+    </ul>
+</div>

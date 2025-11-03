@@ -1,8 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+// Add MVC controllers with views for attribute routing
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -16,17 +17,15 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Handle 404 and other status codes
-app.UseStatusCodePagesWithRedirects("/Error");
-
 app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapStaticAssets();
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Map attribute-routed controllers
+app.MapControllers();
+
 app.MapRazorPages()
    .WithStaticAssets();
 
