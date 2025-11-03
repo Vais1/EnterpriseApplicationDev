@@ -1,12 +1,29 @@
-dotnet new webapp -n MyWebApp
+# Enterprise Application Development (2601-PRG2224)
 
-dotnet new mvc -n MyMvcApp
+Muhammad Awais Ghaffar — Student ID: 22116024
 
-dotnet new web -n MyApi
+This repository contains small ASP.NET Core projects used in tutorial classes. Each project is minimal and focused on a single concept.
 
+## Projects
 
-git init
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Vais1/EnterpriseApplicationDev.git
-git push -u origin main
+- ex4 — Static files demo (Razor Pages)
+  - Simple page with H1 "file server demo", shows image (`wwwroot/img/mountain.png`), solid background color.
+
+- ex5-routing1 — Basic MVC routing
+  - Conventional routing with `HomeController` and `ProductsController`, with Views.
+
+- ex6-routing — Attribute routing example
+  - Controller-based routing with `DateController` and a simple view under `Views/Date`.
+
+- ex7 — Simple controller sample
+  - Minimal MVC project with `HelloController` illustrating a basic controller action.
+
+## How to run (any project)
+
+From the project folder:
+
+```powershell
+dotnet run
+```
+
+Open the printed URL in your browser.

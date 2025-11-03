@@ -1,0 +1,36 @@
+# ASP.NET Core project-level gitignore
+# Build output
+bin/
+obj/
+artifacts/
+publish/
+
+# User/IDE specific
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+.vscode/
+.idea/
+.Rider/
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+
+# Test results
+TestResults/
+*.trx
+
+# Logs & caches
+*.log
+*.cache
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Node (if present)
+node_modules/
