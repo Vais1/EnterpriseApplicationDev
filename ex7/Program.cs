@@ -18,6 +18,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+// Handle 404 and other status codes
+app.UseStatusCodePagesWithRedirects("/Error");
+
 app.UseRouting();
 
 app.UseAuthorization();

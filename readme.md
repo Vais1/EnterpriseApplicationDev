@@ -32,6 +32,31 @@ This repository contains small ASP.NET Core projects used in tutorial classes. E
     - `/Hello/Greet?name=Bob` — Returns "Hello, Bob!"
     - `/Hello/Greet` — Returns "Hello, Guest!" (default value)
 
+- ex8 — Attribute routing with tours
+  - Demonstrates attribute routing with a `ToursController` for exploring world cities.
+  - Route pattern: `/goto/{city}`
+  - **Routing Examples:**
+    - `/goto` — Lists all available cities
+    - `/goto/nyc` — Returns "New York City"
+    - `/goto/paris` — Returns "Paris"
+    - `/goto/london` — Returns "London"
+    - `/goto/tokyo` — Returns "Tokyo"
+    - `/goto/dubai` — Returns "Dubai"
+    - `/goto/sydney` — Returns "Sydney"
+    - `/goto/bangkok` — Returns "Bangkok"
+    - `/goto/barcelona` — Returns "Barcelona"
+    - `/goto/lasvegas` — Returns "Las Vegas"
+    - `/goto/rome` — Returns "Rome"
+    - `/goto/amsterdam` — Returns "Amsterdam"
+    - `/goto/singapur` — Returns "Singapore"
+    - `/goto/istanbul` — Returns "Istanbul"
+    - `/goto/buenosaires` — Returns "Buenos Aires"
+    - `/goto/moscow` — Returns "Moscow"
+    - `/goto/mumbai` — Returns "Mumbai"
+    - `/goto/berlin` — Returns "Berlin"
+  - **Invalid Routes:**
+    - `/goto/invalidcity` — Returns 404 error with list of available cities
+
 ## How to run (any project)
 
 First, navigate to the project folder:
