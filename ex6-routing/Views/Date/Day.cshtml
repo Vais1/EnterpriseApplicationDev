@@ -1,0 +1,12 @@
+@model DateTime
+
+@{
+    // format like: Mon, 25 Jun 2025 (lowercased to match example)
+    var formatted = Model.ToString("ddd, dd MMM yyyy").ToLowerInvariant();
+}
+
+<div style="font-family:Segoe UI, Arial; padding:20px">
+    <h2>Date</h2>
+    <p><strong>@formatted</strong></p>
+    <p><a href="/date">Back to dates</a></p>
+</div>

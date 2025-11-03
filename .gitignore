@@ -1,0 +1,69 @@
+## Ignore Visual Studio temporary files, build results, and user-specific files
+.vs/
+.vscode/
+.idea/
+
+# Build results
+bin/
+obj/
+artifacts/
+publish/
+
+# Rider
+.Rider/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+# The packages folder can be ignored because of PackageReference
+packages/
+project.lock.json
+
+# dotnet publish
+# publish/**
+
+# MSBuild binary and log files
+*.cache
+*.log
+*.vsix
+
+# Database files
+*.db
+*.mdf
+*.ldf
+*.dbmdl
+
+# Test results
+TestResults/
+*.trx
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Local appsettings / secrets
+appsettings.Development.json
+appsettings.*.Local.json
+secrets.json
+
+# Files built by the runtime / tooling
+migrations/**/snapshot-*.json
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Node (if any front-end tooling exists)
+node_modules/
+
+# JetBrains Rider
+.idea/
+
+# VS Code workspace
+*.code-workspace
