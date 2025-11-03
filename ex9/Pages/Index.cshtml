@@ -1,10 +1,47 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "ex9 - POCO Controller";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to ex9</h1>
+    <p>This exercise demonstrates POCO (Plain Old CLR Object) Controllers in ASP.NET Core.</p>
+    
+    <h2>POCO Controller Routes</h2>
+    <p>Click the links below to test the POCO HomeController:</p>
+    
+    <ul style="list-style: none; padding: 0;">
+        <li style="margin: 15px;">
+            <a href="/home" class="btn btn-primary">/home</a>
+            <p><small>Returns: Welcome message</small></p>
+        </li>
+        <li style="margin: 15px;">
+            <a href="/home/today" class="btn btn-info">/home/today</a>
+            <p><small>Returns: Current date and time</small></p>
+        </li>
+        <li style="margin: 15px;">
+            <a href="/home/http/123" class="btn btn-success">/home/http/123</a>
+            <p><small>Returns: "The ID number is: 123"</small></p>
+        </li>
+        <li style="margin: 15px;">
+            <a href="/home/http/456" class="btn btn-warning">/home/http/456</a>
+            <p><small>Returns: "The ID number is: 456"</small></p>
+        </li>
+        <li style="margin: 15px;">
+            <a href="/home/http/789" class="btn btn-secondary">/home/http/789</a>
+            <p><small>Returns: "The ID number is: 789"</small></p>
+        </li>
+    </ul>
+    
+    <hr/>
+    <h3>What is a POCO Controller?</h3>
+    <p>A POCO (Plain Old CLR Object) controller is a simple C# class that doesn't inherit from <code>Controller</code> or <code>ControllerBase</code>.</p>
+    <p>It uses attributes like <code>[Route]</code> and <code>[HttpGet]</code> to define routing and HTTP methods.</p>
+    
+    <h3>Test Invalid Routes</h3>
+    <ul style="list-style: none; padding: 0;">
+        <li style="margin: 10px;"><a href="/home/invalid">/home/invalid</a> → Invalid route (404 Error)</li>
+        <li style="margin: 10px;"><a href="/invalidcontroller">/invalidcontroller</a> → Invalid controller (404 Error)</li>
+    </ul>
 </div>

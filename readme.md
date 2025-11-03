@@ -57,6 +57,17 @@ This repository contains small ASP.NET Core projects used in tutorial classes. E
   - **Invalid Routes:**
     - `/goto/invalidcity` — Returns 404 error with list of available cities
 
+- ex9 — POCO (Plain Old CLR Object) Controller
+  - Demonstrates POCO controller pattern without inheriting from Controller or ControllerBase.
+  - Uses attribute routing with a simple `HomeController`.
+  - **Routing Examples:**
+    - `/home` — Returns "Welcome to the Home page of ex9 - POCO Controller Demo"
+    - `/home/today` — Returns current date and time (e.g., "Current Date and Time: Sunday, November 03, 2025 12:00:00")
+    - `/home/http/123` — Returns "The ID number is: 123"
+    - `/home/http/456` — Returns "The ID number is: 456"
+  - **Invalid Routes:**
+    - `/home/invalid` — Returns 404 error with list of valid routes
+
 ## How to run (any project)
 
 First, navigate to the project folder:

@@ -2,6 +2,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+// Add controller support for POCO controllers
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -15,11 +17,18 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Handle 404 and other status codes
+app.UseStatusCodePagesWithRedirects("/Error");
+
 app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+// Map controllers for POCO controller routing
+app.MapControllers();
+
 app.MapRazorPages()
    .WithStaticAssets();
 
