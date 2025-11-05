@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Test Documentation - Enterprise Application Development</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+
+<div class="document-header">
+    <h1>Enterprise Application Development (2601-PRG2224)</h1>
+    <h2>Practical Test Documentation</h2>
+    <p><strong>Student Name:</strong> Muhammad Awais Ghaffar</p>
+    <p><strong>Student ID:</strong> 22116024</p>
+    <p><strong>Date:</strong> November 6, 2025</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#project-overview">Project Overview</a></li>
+        <li><a href="#exercise-4">Exercise 4 - Static Files Demo</a></li>
+        <li><a href="#exercise-5">Exercise 5 - Basic MVC Routing</a></li>
+        <li><a href="#appendix">Appendix</a></li>
+    </ol>
+</div>
+
+<hr>
+
+<div class="section" id="project-overview">
+    <h2>Project Overview</h2>
+    <p>This documentation covers two ASP.NET Core projects demonstrating fundamental web application concepts:</p>
+    <ul>
+        <li><strong>ex4</strong>: Static file serving with Razor Pages</li>
+        <li><strong>ex5-routing1</strong>: MVC routing with controllers and views</li>
+    </ul>
+    <p>Both projects are built using .NET 9.0 and showcase different architectural patterns in ASP.NET Core.</p>
+</div>
+
+<hr>
+
+<div class="section" id="exercise-4">
+    <h2>Exercise 4 - Static Files Demo</h2>
+    
+    <h3>Project Description</h3>
+    <p>A Razor Pages application demonstrating static file serving capabilities in ASP.NET Core. The project displays an image served from the <code>wwwroot</code> folder with a custom background color.</p>
+    
+    <h3>Key Concepts</h3>
+    <ul>
+        <li>Static file middleware</li>
+        <li>Razor Pages architecture</li>
+        <li>wwwroot folder structure</li>
+        <li>Static assets management</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Program.cs Configuration</h3>
+    <pre><code>var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddRazorPages();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapStaticAssets();
+app.MapRazorPages()
+   .WithStaticAssets();
+
+app.Run();</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Configures the web application builder with Razor Pages services</li>
+        <li>Sets up middleware pipeline for HTTPS redirection and routing</li>
+        <li>Maps static assets from wwwroot folder (images, CSS, JavaScript)</li>
+        <li>Maps Razor Pages to handle page requests</li>
+        <li>Configures exception handling for production environments</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Index.cshtml - Main Page</h3>
+    <pre><code>@page
+@model IndexModel
+@{
+    ViewData["Title"] = "File Server Demo";
+}
+
+&lt;div class="text-center"&gt;
+    &lt;h1 class="display-4"&gt;file server demo&lt;/h1&gt;
+    &lt;br /&gt;
+    &lt;img src="~/img/mountain.png" asp-append-version="true" alt="Mountain" style="max-width: 90%; height: auto;" /&gt;
+&lt;/div&gt;</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Defines a Razor Page with <code>@page</code> directive</li>
+        <li>Sets the page title in ViewData dictionary</li>
+        <li>Displays a centered heading</li>
+        <li>Renders an image from the wwwroot/img folder</li>
+        <li>Uses <code>asp-append-version</code> for cache busting</li>
+        <li>Applies responsive styling to the image</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Custom Styling (site.css)</h3>
+    <pre><code>body {
+  margin-bottom: 60px;
+  /* Solid background color for the page */
+  background-color: #fff7e6; /* light warm peach */
+}</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Sets a bottom margin for the body element</li>
+        <li>Applies a light peach background color to create visual appeal</li>
+        <li>Ensures consistent spacing throughout the application</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Project Output - Exercise 4</h3>
+    <p><strong>Expected Route:</strong> <code>https://localhost:[port]/</code></p>
+    
+    <div class="output-placeholder">
+        <p><em>[Insert screenshot of the static file demo page showing "file server demo" heading and mountain image with peach background]</em></p>
+    </div>
+    
+    <hr>
+    
+    <h3>Project Structure - ex4</h3>
+    <pre><code>ex4/
+├── Program.cs
+├── appsettings.json
+├── appsettings.Development.json
+├── ex4.csproj
+├── Pages/
+│   ├── Index.cshtml
+│   ├── Index.cshtml.cs
+│   ├── Privacy.cshtml
+│   ├── Error.cshtml
+│   ├── _ViewImports.cshtml
+│   ├── _ViewStart.cshtml
+│   └── Shared/
+│       └── _Layout.cshtml
+├── wwwroot/
+│   ├── css/
+│   │   └── site.css
+│   ├── js/
+│   │   └── site.js
+│   ├── img/
+│   │   └── mountain.png
+│   └── lib/
+│       ├── bootstrap/
+│       ├── jquery/
+│       └── jquery-validation/
+└── Properties/
+    └── launchSettings.json</code></pre>
+</div>
+
+<hr>
+
+<div class="section" id="exercise-5">
+    <h2>Exercise 5 - Basic MVC Routing</h2>
+    
+    <h3>Project Description</h3>
+    <p>An MVC (Model-View-Controller) application demonstrating conventional and attribute-based routing in ASP.NET Core. The project includes two controllers with multiple actions and views.</p>
+    
+    <h3>Key Concepts</h3>
+    <ul>
+        <li>MVC architectural pattern</li>
+        <li>Conventional routing</li>
+        <li>Attribute routing</li>
+        <li>Controller actions</li>
+        <li>View rendering</li>
+        <li>Route parameters</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Program.cs Configuration</h3>
+    <pre><code>var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+
+// Handle 404 and other status codes
+app.UseStatusCodePagesWithRedirects("/Error");
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapStaticAssets();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapRazorPages()
+   .WithStaticAssets();
+
+app.Run();</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Registers MVC services with <code>AddControllersWithViews()</code></li>
+        <li>Configures the request pipeline with routing and authorization middleware</li>
+        <li>Sets up conventional routing with default pattern <code>{controller=Home}/{action=Index}/{id?}</code></li>
+        <li>Default route points to HomeController's Index action</li>
+        <li>Optional <code>id</code> parameter allows routes like <code>/Controller/Action/123</code></li>
+        <li>Configures status code page redirects for error handling</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>HomeController.cs - Conventional Routing</h3>
+    <pre><code>using Microsoft.AspNetCore.Mvc;
+
+namespace ex5_routing1.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+    }
+}</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Defines a controller class inheriting from <code>Controller</code> base class</li>
+        <li>Implements two action methods: <code>Index</code> and <code>About</code></li>
+        <li>Uses conventional routing (no route attributes)</li>
+        <li>Returns corresponding views for each action</li>
+        <li>Routes accessible at <code>/Home/Index</code> and <code>/Home/About</code></li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Home/Index.cshtml View</h3>
+    <pre><code>@{
+    ViewData["Title"] = "Home Page";
+}
+
+&lt;div class="text-center"&gt;
+    &lt;h1 class="display-4"&gt;Welcome to the Home Page&lt;/h1&gt;
+    &lt;p&gt;This is the home page handled by HomeController.&lt;/p&gt;
+    &lt;a href="/Home/About" class="btn btn-primary"&gt;About&lt;/a&gt;
+    &lt;a href="/shop/Products" class="btn btn-secondary"&gt;Products&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Sets the page title using ViewData</li>
+        <li>Displays a welcome message</li>
+        <li>Provides navigation links to About and Products pages</li>
+        <li>Uses Bootstrap classes for styling</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Home/About.cshtml View</h3>
+    <pre><code>@{
+    ViewData["Title"] = "About";
+}
+
+&lt;h1&gt;About Us&lt;/h1&gt;
+&lt;p&gt;This page is handled by HomeController's About action.&lt;/p&gt;
+&lt;a href="/Home" class="btn btn-primary"&gt;Back to Home&lt;/a&gt;</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Displays information about the application</li>
+        <li>Provides a navigation link back to the home page</li>
+        <li>Demonstrates simple view rendering</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Project Output - Exercise 5 (Home Pages)</h3>
+    
+    <h4>Route: /Home/Index or /</h4>
+    <div class="output-placeholder">
+        <p><em>[Insert screenshot of Home Index page showing "Welcome to the Home Page" with About and Products buttons]</em></p>
+    </div>
+    
+    <h4>Route: /Home/About</h4>
+    <div class="output-placeholder">
+        <p><em>[Insert screenshot of About page showing "About Us" heading with back to home button]</em></p>
+    </div>
+    
+    <hr>
+    
+    <h3>ProductsController.cs - Attribute Routing</h3>
+    <pre><code>using Microsoft.AspNetCore.Mvc;
+
+namespace ex5_routing1.Controllers
+{
+    [Route("shop/[controller]")]
+    public class ProductsController : Controller
+    {
+        [Route("")]
+        [Route("list")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Route("item/{id}")]
+        public IActionResult Details(int id)
+        {
+            ViewBag.ProductId = id;
+            return View();
+        }
+    }
+}</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Uses attribute routing with <code>[Route("shop/[controller]")]</code> at controller level</li>
+        <li><code>[controller]</code> token is replaced with "Products" (controller name without "Controller" suffix)</li>
+        <li>Base route becomes <code>/shop/products</code></li>
+        <li>Index action has two routes: <code>/shop/products</code> and <code>/shop/products/list</code></li>
+        <li>Details action accepts an <code>id</code> parameter from the route: <code>/shop/products/item/{id}</code></li>
+        <li>Passes the <code>id</code> value to the view using ViewBag</li>
+        <li>Demonstrates flexible routing with multiple route patterns</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Products/Index.cshtml View</h3>
+    <pre><code>@{
+    ViewData["Title"] = "Products";
+}
+
+&lt;h1&gt;Our Products&lt;/h1&gt;
+&lt;p&gt;This page is handled by ProductsController.&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href="/shop/Products/item/1"&gt;Product 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/shop/Products/item/2"&gt;Product 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href="/Home" class="btn btn-primary"&gt;Back to Home&lt;/a&gt;</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Displays a list of products with links</li>
+        <li>Each link includes a product ID in the route</li>
+        <li>Provides navigation back to the home page</li>
+        <li>Demonstrates route parameter usage in links</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Products/Details.cshtml View</h3>
+    <pre><code>@{
+    ViewData["Title"] = "Product Details";
+}
+
+&lt;h1&gt;Product Details&lt;/h1&gt;
+&lt;p&gt;Product ID: @ViewBag.ProductId&lt;/p&gt;
+&lt;p&gt;This page is handled by ProductsController's Details action.&lt;/p&gt;
+&lt;a href="/shop/Products" class="btn btn-primary"&gt;Back to Products&lt;/a&gt;</code></pre>
+    
+    <p><strong>What this code does:</strong></p>
+    <ul>
+        <li>Displays details for a specific product</li>
+        <li>Retrieves and displays the product ID from ViewBag</li>
+        <li>Shows how route parameters are passed from controller to view</li>
+        <li>Provides navigation back to the products list</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Project Output - Exercise 5 (Products Pages)</h3>
+    
+    <h4>Route: /shop/products or /shop/products/list</h4>
+    <div class="output-placeholder">
+        <p><em>[Insert screenshot of Products Index page showing "Our Products" with product links]</em></p>
+    </div>
+    
+    <h4>Route: /shop/products/item/1</h4>
+    <div class="output-placeholder">
+        <p><em>[Insert screenshot of Product Details page showing "Product ID: 1"]</em></p>
+    </div>
+    
+    <h4>Route: /shop/products/item/5</h4>
+    <div class="output-placeholder">
+        <p><em>[Insert screenshot of Product Details page showing "Product ID: 5"]</em></p>
+    </div>
+    
+    <hr>
+    
+    <h3>Routing Summary - Exercise 5</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Route Pattern</th>
+                <th>Controller</th>
+                <th>Action</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>/</code> or <code>/Home/Index</code></td>
+                <td>HomeController</td>
+                <td>Index</td>
+                <td>Home page (conventional routing)</td>
+            </tr>
+            <tr>
+                <td><code>/Home/About</code></td>
+                <td>HomeController</td>
+                <td>About</td>
+                <td>About page (conventional routing)</td>
+            </tr>
+            <tr>
+                <td><code>/shop/products</code></td>
+                <td>ProductsController</td>
+                <td>Index</td>
+                <td>Products list (attribute routing)</td>
+            </tr>
+            <tr>
+                <td><code>/shop/products/list</code></td>
+                <td>ProductsController</td>
+                <td>Index</td>
+                <td>Products list alternate route</td>
+            </tr>
+            <tr>
+                <td><code>/shop/products/item/{id}</code></td>
+                <td>ProductsController</td>
+                <td>Details</td>
+                <td>Product details with ID parameter</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    
+    <h3>Project Structure - ex5-routing1</h3>
+    <pre><code>ex5-routing1/
+├── Program.cs
+├── appsettings.json
+├── appsettings.Development.json
+├── ex5-routing1.csproj
+├── ex5-routing1.sln
+├── Controllers/
+│   ├── HomeController.cs
+│   └── ProductsController.cs
+├── Views/
+│   ├── _ViewImports.cshtml
+│   ├── _ViewStart.cshtml
+│   ├── Home/
+│   │   ├── Index.cshtml
+│   │   └── About.cshtml
+│   ├── Products/
+│   │   ├── Index.cshtml
+│   │   └── Details.cshtml
+│   └── Shared/
+│       └── _Layout.cshtml
+├── Pages/
+│   └── Error.cshtml
+├── wwwroot/
+│   ├── css/
+│   │   └── site.css
+│   ├── js/
+│   │   └── site.js
+│   └── lib/
+│       ├── bootstrap/
+│       ├── jquery/
+│       └── jquery-validation/
+└── Properties/
+    └── launchSettings.json</code></pre>
+</div>
+
+<hr>
+
+<div class="section" id="appendix">
+    <h2>Appendix</h2>
+    
+    <h3>How to Run the Projects</h3>
+    
+    <h4>Exercise 4</h4>
+    <pre><code>cd ex4
+dotnet run</code></pre>
+    
+    <h4>Exercise 5</h4>
+    <pre><code>cd ex5-routing1
+dotnet run</code></pre>
+    
+    <h4>Using Watch Mode (Auto-reload on changes)</h4>
+    <pre><code>dotnet watch run</code></pre>
+    
+    <hr>
+    
+    <h3>Key Differences Between ex4 and ex5</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>ex4 (Razor Pages)</th>
+                <th>ex5 (MVC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Architecture</td>
+                <td>Page-based</td>
+                <td>Controller-based</td>
+            </tr>
+            <tr>
+                <td>Routing</td>
+                <td>Page-based routing</td>
+                <td>Conventional + Attribute routing</td>
+            </tr>
+            <tr>
+                <td>File Organization</td>
+                <td>Pages folder</td>
+                <td>Controllers + Views folders</td>
+            </tr>
+            <tr>
+                <td>Use Case</td>
+                <td>Simple page-focused apps</td>
+                <td>Complex apps with separation of concerns</td>
+            </tr>
+            <tr>
+                <td>Code-behind</td>
+                <td>.cshtml.cs files</td>
+                <td>Controller classes</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <hr>
+    
+    <h3>Technologies Used</h3>
+    <ul>
+        <li>.NET 9.0</li>
+        <li>ASP.NET Core</li>
+        <li>Razor Pages (ex4)</li>
+        <li>MVC Pattern (ex5)</li>
+        <li>Bootstrap 5</li>
+        <li>jQuery</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Learning Outcomes</h3>
+    <ol>
+        <li>Understanding static file serving in ASP.NET Core</li>
+        <li>Implementing Razor Pages architecture</li>
+        <li>Working with MVC controllers and views</li>
+        <li>Configuring conventional routing patterns</li>
+        <li>Applying attribute-based routing</li>
+        <li>Passing data between controllers and views</li>
+        <li>Managing route parameters</li>
+    </ol>
+</div>
+
+<hr>
+
+<div class="document-footer">
+    <p><strong>End of Documentation</strong></p>
+    <p>Muhammad Awais Ghaffar - Student ID: 22116024</p>
+    <p>Enterprise Application Development (2601-PRG2224)</p>
+</div>
+
+</body>
+</html>

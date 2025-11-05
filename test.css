@@ -1,0 +1,294 @@
+/* ============================================
+   Professional Practical Test Documentation Styles
+   Enterprise Application Development (2601-PRG2224)
+   Muhammad Awais Ghaffar - Student ID: 22116024
+   ============================================ */
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Headings */
+h1 {
+    color: #0044cc;
+    text-align: center;
+    font-size: 22pt;
+    margin: 8px 0px 5px 0px;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: #0044cc;
+    border-bottom: 2px solid #0044cc;
+    text-transform: uppercase;
+    font-size: 14pt;
+    margin: 15px 0px 10px 0px;
+    padding-bottom: 4px;
+}
+
+h3 {
+    color: #000000;
+    font-size: 12pt;
+    margin: 10px 0px 8px 0px;
+    padding: 0;
+}
+
+h4 {
+    color: #000000;
+    font-size: 11pt;
+    margin: 8px 0px 6px 0px;
+}
+
+/* Document Sections */
+.document-header {
+    text-align: center;
+    background-color: #0044cc;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #003399;
+}
+
+.section {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #0044cc;
+}
+
+/* Paragraphs and Text */
+p {
+    margin: 8px 0px;
+    font-size: 12pt;
+    color: #000000;
+}
+
+/* Links */
+a {
+    color: #0044cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+    margin: 8px 0px 8px 20px;
+    padding-left: 10px;
+}
+
+li {
+    margin-bottom: 4px;
+    font-size: 12pt;
+    color: #000000;
+}
+
+/* Code Blocks */
+code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    background-color: #f5f5f5;
+    padding: 2px 5px;
+    font-size: 10pt;
+    color: #c7254e;
+    border: 1px solid #e1e1e1;
+}
+
+pre {
+    background-color: #f8f8f8;
+    border: 1px solid #cccccc;
+    border-left: 4px solid #0044cc;
+    padding: 12px;
+    overflow-x: auto;
+    margin: 12px 0px;
+    font-size: 10pt;
+}
+
+pre code {
+    background-color: transparent;
+    color: #000000;
+    padding: 0;
+    border: none;
+    font-size: 10pt;
+    line-height: 1.4;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0px;
+    border: 1px solid #cccccc;
+}
+
+thead {
+    background-color: #0044cc;
+    color: white;
+}
+
+th {
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 11pt;
+    border: 1px solid #cccccc;
+}
+
+td {
+    padding: 8px;
+    border: 1px solid #cccccc;
+    font-size: 11pt;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Horizontal Rules */
+hr {
+    border: none;
+    border-top: 1px solid #cccccc;
+    margin: 20px 0px;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #0044cc;
+    padding-left: 15px;
+    margin: 12px 0px;
+    font-style: italic;
+    color: #666666;
+    background-color: #f5f5f5;
+    padding: 10px 15px;
+}
+
+/* Output Placeholder */
+.output-placeholder {
+    background-color: #ffffcc;
+    border: 2px dashed #ff9900;
+    padding: 40px 20px;
+    margin: 15px 0px;
+    text-align: center;
+    font-style: italic;
+    color: #000000;
+    min-height: 150px;
+}
+
+/* Document Footer */
+.document-footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0044cc;
+    color: white;
+    margin-top: 30px;
+    border: 2px solid #003399;
+}
+
+.document-footer strong {
+    color: #ffff00;
+}
+
+/* Strong and Bold Text */
+strong, b {
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Emphasis and Italic */
+em, i {
+    font-style: italic;
+}
+
+/* Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #cccccc;
+    margin: 10px 0px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 11pt;
+    }
+    
+    h1 {
+        font-size: 18pt;
+    }
+    
+    h2 {
+        font-size: 13pt;
+    }
+    
+    h3 {
+        font-size: 11pt;
+    }
+    
+    pre {
+        font-size: 9pt;
+        padding: 8px;
+    }
+    
+    table {
+        font-size: 10pt;
+    }
+    
+    th, td {
+        padding: 6px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+        padding: 0;
+    }
+    
+    .document-header {
+        background: #0044cc;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+    
+    pre {
+        page-break-inside: avoid;
+    }
+    
+    .output-placeholder {
+        border: 2px solid #cccccc;
+        background: white;
+    }
+    
+    a {
+        color: #0044cc;
+        text-decoration: underline;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Print Page Breaks */
+@page {
+    margin: 2cm;
+}
