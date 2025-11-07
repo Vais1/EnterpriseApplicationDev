@@ -68,6 +68,19 @@ This repository contains small ASP.NET Core projects used in tutorial classes. E
   - **Invalid Routes:**
     - `/home/invalid` — Returns 404 error with list of valid routes
 
+- ex10 — Razor Variables Exercise
+  - Demonstrates the use of variables, loops, and conditional logic in Razor views.
+  - Includes simple variables, while loops, foreach loops with lists, and ternary operators.
+  - **Sections:**
+    - Simple Variables — Display string, integer, and double variables from both model properties and local Razor variables.
+    - While Loop — Demonstrates counting from 1 to 5 using a while loop.
+    - ForEach Loop with Strings — Displays a list of fruits using foreach loop with the Fruits list from the model.
+    - ForEach Loop with Integers — Shows a table of numbers with calculated values (doubled and squared).
+    - Conditional Logic — Uses ternary operators to calculate grade based on score and pluralize text.
+    - ForEach with Index — Displays fruits with their index positions in a numbered list.
+  - **Route Examples:**
+    - `/` or `/Index` — Displays the Razor variables exercise page with all examples
+
 ## How to run (any project)
 
 First, navigate to the project folder:

@@ -1,10 +1,136 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Razor Variables Exercise";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <h1>@Model.WelcomeMessage</h1>
+    <p class="text-muted">This page demonstrates the use of variables, while loops, and foreach loops in Razor views.</p>
+
+    <hr />
+
+    <!-- Section 1: Simple Variables -->
+    <section class="mb-5">
+        <h2>1. Simple Variables</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Welcome Message:</strong> @Model.WelcomeMessage</p>
+                <p><strong>Number Value:</strong> @Model.NumberValue</p>
+                
+                <!-- Local Razor variable -->
+                @{
+                    string greeting = "Hello from Razor!";
+                    int age = 25;
+                    double price = 19.99;
+                }
+                <p><strong>Local Variable:</strong> @greeting</p>
+                <p><strong>Age:</strong> @age years old</p>
+                <p><strong>Price:</strong> $@price.ToString("F2")</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: While Loop Example -->
+    <section class="mb-5">
+        <h2>2. While Loop Example</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Counting from 1 to 5 using while loop:</strong></p>
+                <ul>
+                    @{
+                        int counter = 1;
+                        while (counter <= 5)
+                        {
+                            <li>Count: @counter</li>
+                            counter++;
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: ForEach Loop with String List -->
+    <section class="mb-5">
+        <h2>3. ForEach Loop - Fruits List</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>List of fruits from Model:</strong></p>
+                <ul class="list-group">
+                    @foreach (var fruit in Model.Fruits)
+                    {
+                        <li class="list-group-item">🍎 @fruit</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: ForEach Loop with Numbers -->
+    <section class="mb-5">
+        <h2>4. ForEach Loop - Numbers List</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>List of numbers with calculations:</strong></p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Original</th>
+                            <th>Doubled</th>
+                            <th>Squared</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var num in Model.Numbers)
+                        {
+                            <tr>
+                                <td>@num</td>
+                                <td>@(num * 2)</td>
+                                <td>@(num * num)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Conditional Logic with Variables -->
+    <section class="mb-5">
+        <h2>5. Conditional Logic with Variables</h2>
+        <div class="card">
+            <div class="card-body">
+                @{
+                    int score = 85;
+                    string grade = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : "F";
+                }
+                <p><strong>Score:</strong> @score</p>
+                <p><strong>Grade:</strong> <span class="badge bg-success">@grade</span></p>
+                
+                @{
+                    int itemCount = 3;
+                }
+                <p><strong>Items in cart:</strong> @itemCount (@(itemCount == 1 ? "item" : "items"))</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Advanced ForEach with Index -->
+    <section class="mb-5">
+        <h2>6. ForEach Loop with Index</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Fruits with index numbers:</strong></p>
+                <ol>
+                    @foreach (var fruit in Model.Fruits)
+                    {
+                        var index = Model.Fruits.IndexOf(fruit) + 1;
+                        <li>@index. @fruit</li>
+                    }
+                </ol>
+            </div>
+        </div>
+    </section>
+
 </div>
