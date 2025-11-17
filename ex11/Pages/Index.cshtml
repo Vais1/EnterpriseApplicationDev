@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Razor Model Access";
+}
+
+<div class="container mt-5">
+    <h1>@Model.Title</h1>
+    <hr />
+    
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <!-- Display Simple Model Properties -->
+            <h3>Model Properties</h3>
+            <p><strong>Title:</strong> @Model.Title</p>
+            <p><strong>Current Date/Time:</strong> @Model.CurrentDate.ToString("dddd, d MMM yyyy")</p>
+            <p><strong>Message:</strong> @Model.Message</p>
+            
+            <hr />
+            
+            <!-- Display List of Items -->
+            <h3>Items List</h3>
+            <ul class="list-group">
+                @foreach (var item in Model.Items)
+                {
+                    <li class="list-group-item">@item</li>
+                }
+            </ul>
+            
+            <hr />
+            
+            <!-- Display Numbers with Calculations -->
+            <h3>Numbers with Calculations</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Doubled</th>
+                        <th>Squared</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var num in Model.Numbers)
+                    {
+                        <tr>
+                            <td>@num</td>
+                            <td>@(num * 2)</td>
+                            <td>@(num * num)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
