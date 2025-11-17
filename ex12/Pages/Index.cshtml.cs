@@ -14,6 +14,9 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-
+        ViewData["PageTitle"] = "Home - ViewData and ViewBag Demo";
+        ViewData["WelcomeMessage"] = "Welcome to the ViewData and ViewBag Exercise";
+        ViewData["ApplicationName"] = "ex12 - View Engine Demo";
+        ViewData["Version"] = "1.0";
     }
 }

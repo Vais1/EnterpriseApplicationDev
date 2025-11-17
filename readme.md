@@ -81,6 +81,26 @@ This repository contains small ASP.NET Core projects used in tutorial classes. E
   - **Route Examples:**
     - `/` or `/Index` — Displays the Razor variables exercise page with all examples
 
+- ex11 — Razor View Access to Models
+  - Demonstrates accessing model properties in Razor views.
+  - Showcases binding between PageModel and Razor views using the @Model directive.
+  - **Sections:**
+    - Model Properties — Display simple properties from the model (Title, Current Date/Time, Message).
+    - Items List — Render a list of items from a model collection in an unordered list.
+    - Numbers with Calculations — Display numbers in a table with calculated values (doubled and squared).
+  - **Route Examples:**
+    - `/` or `/Index` — Displays the model access demonstration page with all model-bound content
+
+- ex12 — View Engine, ViewData and ViewBag
+  - Demonstrates the use of ViewData dictionary and ViewBag dynamic object for passing data from page models to views.
+  - Showcases employee listing with structured data using ViewData.
+  - **Sections:**
+    - Home Page — Displays ViewData and ViewBag values demonstrating both access methods.
+    - Employees Page — Lists employees with details (Name, Designation, Company, Location) and uses ViewData for page metadata.
+  - **Route Examples:**
+    - `/` or `/Index` — Home page displaying ViewData and ViewBag demonstration
+    - `/employees` — Employees directory with employee listing and ViewData metadata
+
 ## How to run (any project)
 
 First, navigate to the project folder:

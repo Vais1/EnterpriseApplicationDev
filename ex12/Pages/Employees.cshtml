@@ -1,0 +1,56 @@
+@page
+@model EmployeesModel
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1>@ViewData["PageTitle"]</h1>
+            <p class="lead">Employee listing demonstrating ViewData and ViewBag usage.</p>
+        </div>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                <p><strong>Department:</strong> @ViewData["Department"]</p>
+                <p><strong>Total Employees:</strong> @ViewData["TotalEmployees"]</p>
+                <p><strong>Last Updated:</strong> @ViewData["LastUpdated"]</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Job Skill</th>
+                        <th>Company</th>
+                        <th>Company Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model.Employees)
+                    {
+                        <tr>
+                            <td>@employee.EmployeeName</td>
+                            <td>@employee.EmployeeDesignation</td>
+                            <td>@employee.CompanyName</td>
+                            <td>@employee.CompanyLocation</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <a href="/" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
