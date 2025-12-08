@@ -1,1 +1,1 @@
-dotnet new webapp -n MyWebApp
+dotnet new webapp -n 

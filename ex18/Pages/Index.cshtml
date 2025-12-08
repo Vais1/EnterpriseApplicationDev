@@ -1,0 +1,71 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body p-5 text-center">
+                    <h1 class="display-5 mb-3">Welcome back, @User.Identity.Name!</h1>
+                    <p class="lead text-muted mb-4">Manage your contacts and keep your address book up to date.</p>
+                    <a asp-page="/Contacts/Index" class="btn btn-primary btn-lg px-5">Go to Contacts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+            <h1 class="display-4 mb-3">Contact Manager</h1>
+            <p class="lead text-muted mb-5">Organize and manage your contacts efficiently</p>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body p-5 text-center">
+                    <h2 class="h3 mb-4">Get Started</h2>
+                    <p class="text-muted mb-4">Create an account or log in to start managing your contacts.</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary btn-lg px-4 me-2">Register</a>
+                        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-outline-primary btn-lg px-4">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <h3 class="h5 mb-3">Easy Management</h3>
+                    <p class="text-muted mb-0">Add, edit, and delete contacts with a simple, intuitive interface.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <h3 class="h5 mb-3">Secure</h3>
+                    <p class="text-muted mb-0">Your contacts are private and secure. Only you can access your data.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <h3 class="h5 mb-3">Complete Details</h3>
+                    <p class="text-muted mb-0">Store comprehensive contact information including address, phone, and notes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
