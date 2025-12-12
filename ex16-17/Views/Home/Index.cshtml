@@ -1,0 +1,80 @@
+@model MVCEF.ViewModels.EmployeeAddViewModel
+@using MVCEF.Models
+@using MVCEF.ViewModels
+@{
+    ViewBag.Title = "Employee Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+//For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<h2>Employee Management</h2>
+
+<div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <h3>Add New Employee</h3>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <table>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Name)</td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Name)
+                    @Html.ValidationMessageFor(Model => Model.Name, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Designation)</td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Designation)
+                    @Html.ValidationMessageFor(Model => Model.Designation, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Salary)</td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Salary)
+                    @Html.ValidationMessageFor(Model => Model.Salary, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Add Employee" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+<div>
+    <h3>Employee List</h3>
+    @if (Model.EmployeesList != null && Model.EmployeesList.Any())
+    {
+        <table class="employee-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.EmployeesList)
+                {
+                    <tr>
+                        <td>@employee.Id</td>
+                        <td>@employee.Name</td>
+                        <td>@employee.Designation</td>
+                        <td>@employee.Salary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No employees found.</p>
+    }
+</div>
